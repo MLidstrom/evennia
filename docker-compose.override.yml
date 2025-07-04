@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  evennia:
+    # Override for development - start with a shell instead of starting the server
+    command: ["bash"]
+    # Mount additional directories for development
+    volumes:
+      - ./mygame:/usr/src/game
+      - ./evennia:/usr/src/evennia/evennia
+      - ./docs:/usr/src/evennia/docs
+      - ./bin:/usr/src/evennia/bin
+      - ./ainneve:/usr/src/ainneve
+    environment:
+      - PYTHONPATH=/usr/src/evennia
+      - EVENNIA_SETTINGS_MODULE=settings
+      - DJANGO_SETTINGS_MODULE=settings
+      - EVENNIA_DEBUG=1
+    # Keep container running for development
+    stdin_open: true
+    tty: true

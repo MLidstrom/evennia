@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  evennia:
+    build: .
+    image: evennia-dev:local
+    container_name: evennia_dev
+    command: bash -c "evennia migrate && evennia start --reload --log"
+    volumes:
+      - ./server:/app  # live code + game dir
+    ports:
+      - "4000:4000"   # telnet
+      - "4001:4001"   # web
+      - "4002:4002"   # websocket
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
