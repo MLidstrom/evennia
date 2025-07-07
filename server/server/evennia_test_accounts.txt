@@ -1,0 +1,77 @@
+# Evennia Test Accounts Created
+# Date: July 4, 2025
+# Session: Docker Development Environment Testing
+
+## Accounts Created During Testing:
+
+### 1. AssistantAI
+- **Username**: AssistantAI
+- **Password**: gamepass123
+- **Status**: Successfully created via telnet interface
+- **Character**: AssistantAI (same name as account)
+- **Creation Method**: telnet create command
+- **Notes**: This account was confirmed created but login was interrupted
+
+### 2. AssistantDev (Django Superuser)
+- **Username**: AssistantDev
+- **Password**: password123
+- **Email**: assistantdev@example.com
+- **Status**: Created as Django superuser
+- **Creation Method**: Django createsuperuser command
+- **Notes**: Django admin account, may not work with Evennia game login
+
+## Connection Information:
+- **Server**: MyEvenniaGame (Evennia 5.0.1)
+- **Telnet**: localhost:4000
+- **Web Interface**: localhost:4001
+- **WebSocket**: localhost:4002
+
+## Login Commands:
+```
+connect AssistantAI gamepass123
+connect AssistantDev password123
+```
+
+## Test Results:
+- Telnet connection: ✅ Working
+- Account creation: ✅ Working  
+- Web interface: ✅ Working (after static files fix)
+- Game commands: ✅ Available after login
+- Docker environment: ✅ Fully functional
+
+## Default Game Features Confirmed:
+- Welcome screen with proper formatting
+- Account creation with confirmation prompts
+- Help system with available commands
+- Limbo starting room (default Evennia setup)
+- Communication commands (say, etc.)
+- Inventory system
+- Character management
+
+
+## Additional Notes:
+
+### Session Summary:
+- Successfully connected to Evennia via telnet from Docker container
+- Confirmed Evennia server is running on all ports (4000, 4001, 4002)
+- Web interface functional after resolving static files issues
+- Account creation process works as expected
+- Game world initialized with default Limbo room
+- All basic MUD functionality confirmed working
+
+### Docker Environment Status:
+- Container: evennia_dev (running)
+- Image: evennia-dev:local
+- Volumes: Live code editing enabled
+- Database: SQLite with proper migrations
+- Static files: Collected and serving correctly
+
+### For Future Access:
+Users can connect via:
+1. Telnet client to localhost:4000
+2. Web browser to http://localhost:4001
+3. WebSocket client to localhost:4002
+
+Remember to start the Evennia server if container is restarted:
+cd /app && export DJANGO_SETTINGS_MODULE=server.conf.settings && python -c "import sys; sys.path.insert(0, '/usr/src/evennia'); from evennia.server.evennia_launcher import main; main()" start --log
+

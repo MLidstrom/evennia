@@ -26,6 +26,14 @@ with [discussion forums][group] and a [discord server][chat] to help and support
 
 See [the full installation instructions][installation] for more help.
 
+### Docker Development Environment
+
+For development using Docker, see our [Docker Development Guide](docs/docker-dev.md) which covers:
+- Prerequisites and setup for Windows/WSL2
+- How to start/stop the development stack
+- Volume mapping between Windows and containers
+- Common troubleshooting scenarios
+
 Next, browse to `http://localhost:4001` or use your third-party mud client to
 connect to `localhost`, port `4000` to see your working (if empty) game!
 

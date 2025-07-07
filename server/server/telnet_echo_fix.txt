@@ -1,0 +1,31 @@
+TELNET ECHO FIX APPLIED
+======================
+
+PROBLEM IDENTIFIED:
+Evennia wasn't sending the "IAC WILL ECHO" command during telnet negotiation.
+This caused telnet clients to not see what they were typing.
+
+BEFORE FIX:
+- Server sent various telnet options but not ECHO
+- Client kept local echo on (characters not visible when typing)
+
+AFTER FIX:
+- Server now sends "IAC WILL 1 (ECHO)" during connection
+- This tells the client that the server will handle echoing
+- Client should turn off local echo and let server echo back characters
+
+SOLUTION APPLIED:
+- Created custom TelnetProtocol in /app/server/conf/fix_telnet_echo.py
+- Added TELNET_PROTOCOL_CLASS setting to use the custom protocol
+- Custom protocol forces sending "IAC WILL ECHO" on connection
+
+CONNECTION INFO:
+- Telnet: localhost:4000 (should now show what you type)
+- Web: http://localhost:4001 (browser)
+- WebSocket: ws://localhost:4002
+
+TEST ACCOUNTS:
+Two test accounts were created previously (credentials not stored here for security).
+
+The telnet echo bug has been fixed. You should now be able to see what you 
+type when connecting via telnet to localhost:4000.

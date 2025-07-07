@@ -1,0 +1,67 @@
+# Git files
+.git
+.gitignore
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Documentation
+docs/_build
+
+# Virtual environments
+venv
+.venv
+.env
+ENV
+env
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker files (we don't need these in the build context)
+docker-compose*.yml
+docker-dev.ps1
+DOCKER_DEV_README.md
+
+# Game files (these are mounted as volumes)
+mygame/
+server/logs/
+server/*.pid
+server/*.log
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
